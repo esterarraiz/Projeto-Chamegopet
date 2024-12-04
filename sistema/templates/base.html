@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamegopet</title>
+    <link rel="icon" href="{% static 'icons/logo.ico' %}" type="image/logoicon">
+    
+    <!-- Bootstrap CSS -->
+    <link type="text/css" rel="stylesheet" href="{% static 'bootstrap-5.3.3/css/bootstrap.css' %}">
+    
+    <!-- Bootstrap Bundle (JS + Popper) -->
+    <script type="text/javascript" src="{% static 'bootstrap-5.3.3/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- CSS Local -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/styles-base.css' %}">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    {% block css_local %}{% endblock %}
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'img/logo.svg' %}" alt="Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <form class="d-flex mx-auto" method="GET">
+                    <input class="form-control me-2" type="search" placeholder="Pesquise por pets aqui" aria-label="Search" name="q" style="width: 700px;">
+                </form>
+
+                <!-- Alinhamento do ícone de login ou perfil -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        {% if request.user.is_authenticated %}
+                            <!-- Ícone de perfil com menu suspenso -->
+                            <div class="dropdown">
+                                <a class="nav-link d-flex flex-column align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle fs-3" style="color: #3dbdc0;"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{% url 'minhas_divulgacoes' %}">Minhas Divulgações</a>
+                                    <li><a class="dropdown-item" href="/logout/">Sair</a></li>
+                                </ul>                                
+                            </div>
+                            {% else %}
+                            <!-- Botão "Entrar" -->
+                            <a class="btn btn-custom" href="/login/" role="button" style="margin-top: -2px;">
+                                Entrar
+                            </a>                                                       
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bloco de conteúdo -->
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="custom-footer">
+        © 2024 Chamegopet - Todos os direitos reservados
+    </footer>
+
+    {% block js_local %}{% endblock %}
+</body>
+
+</html>

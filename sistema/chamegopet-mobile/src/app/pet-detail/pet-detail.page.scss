@@ -1,0 +1,86 @@
+ion-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 40px;
+}
+
+.centered-title {
+  text-align: center; /* Centraliza o texto */
+  width: 100%; /* Faz o título ocupar o espaço completo */
+  position: absolute; /* Faz o título ignorar o botão */
+  left: 0;
+  top: 50%; /* Centraliza verticalmente dentro do toolbar */
+  transform: translateY(-50%); /* Ajuste fino para centralização vertical */
+}
+.pet-detail-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  padding-top: 80px; /* Espaço suficiente para evitar o overlap com o header */
+}
+
+.pet-image-container {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-top: 16px; /* Adiciona espaço extra abaixo do header */
+}
+
+.pet-image-container ion-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem seja cortada proporcionalmente */
+}
+
+.pet-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.pet-info-list {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 16px;
+}
+
+.whatsapp-button {
+  --background: #25d366; /* Verde típico do WhatsApp */
+  --color: #ffffff; /* Texto branco */
+  text-transform: none; /* Evita que o texto seja transformado para maiúsculas automaticamente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Espaço entre o ícone e o texto */
+  padding: 12px 20px; /* Ajuste de espaçamento para o botão */
+}
+
+.whatsapp-button ion-icon {
+  font-size: 1.5rem; /* Ajuste o tamanho do ícone */
+}
+
+.whatsapp-text {
+  font-size: 1rem; /* Ajuste o tamanho do texto */
+  font-weight: bold; /* Deixe o texto em negrito */
+}
+
+.no-contact-message {
+  color: #999;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+
+.no-contact-message {
+  color: #999;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}

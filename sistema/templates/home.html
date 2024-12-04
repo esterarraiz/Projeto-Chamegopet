@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">Encontre seu novo amigo aqui:</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for pet in pets %}
+        <div class="col">
+            <div class="card-home">
+                <!-- Imagem com estilo para garantir que fiquem do mesmo tamanho -->
+                <img src="{{ pet.imagem.url }}" class="card-img-top pet-image" alt="{{ pet.id }} Image">
+
+                <div class="card-body text-center">
+                    <h5 class="card--home">{{ pet.titulo }}</h5>
+                    <p class="card-text">
+                        <i class="bi bi-geo-alt-fill"></i> {{ pet.cidade }} - {{pet.estado}}<br>
+                        <i class="bi bi-clock-fill"></i> {{ pet.date_posted|date:"d/m/Y H:i" }}
+                    </p>
+                    {% if user.is_authenticated %}
+                    <!-- Usando o nome da URL 'pet_detail' com o parâmetro 'pk' para o pet específico -->
+                    <a href="{% url 'pet_detail' pet.id %}" class="btn btn-custom">Saiba mais</a>
+                    {% else %}
+                    <a href="/login/?next=/pets/{{ pet.id }}" class="btn btn-custom">Saiba mais</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Botão Flutuante -->
+{% if user.is_authenticated %}
+    <a href="{% url 'divulgar_pet' %}" class="btn divulgar-btn position-fixed bottom-0 end-0 m-3">
+        <img src="{% static 'icons/add-icon.svg' %}" alt="Divulgar">
+        <span>Divulgue seu pet aqui</span>
+    </a>
+{% else %}
+    <a href="{% url 'login' %}?next={% url 'divulgar_pet' %}" class="btn divulgar-btn position-fixed bottom-0 end-0 m-3">
+        <img src="{% static 'icons/add-icon.svg' %}" alt="Divulgar">
+        <span>Divulgue seu pet aqui</span>
+    </a>
+{% endif %}
+{% endblock %}

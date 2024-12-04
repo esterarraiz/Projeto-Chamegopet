@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="centered-title">Detalhes do Pet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="pet-detail-content">
+  <div class="pet-detail-card" *ngIf="petDetail">
+    <!-- Foto grande e quadrada no topo -->
+    <div class="pet-image-container">
+      <ion-img [src]="petDetail.imagem || '/assets/sem-imagem.jpg'" alt="Imagem do Pet"></ion-img>
+    </div>
+
+    <!-- Título -->
+    <h2 class="pet-title">{{ petDetail.titulo }}</h2>
+
+    <!-- Informações -->
+    <ion-list class="pet-info-list">
+      <ion-item>
+        <ion-label><strong>Raça:</strong></ion-label>
+        <ion-note>{{ petDetail.raca || 'Indisponível' }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label><strong>Idade:</strong></ion-label>
+        <ion-note>{{ petDetail.idade || 'N/A' }} meses</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label><strong>Sexo:</strong></ion-label>
+        <ion-note>{{ petDetail.sexo || 'Indefinido' }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label><strong>Descrição:</strong></ion-label>
+        <ion-note>{{ petDetail.descricao || 'Nenhuma descrição fornecida.' }}</ion-note>
+      </ion-item>
+    </ion-list>
+
+    <!-- Botão de interesse -->
+    <div class="interest-button-container">
+      <ion-button *ngIf="petDetail.whatsapp" expand="full" color="success" 
+        href="https://wa.me/{{ petDetail.whatsapp }}?text=Olá, vi o seu post no *Chamegopet* e tenho interesse de adotar o pet {{ petDetail.titulo }}" 
+        target="_blank" class="whatsapp-button">
+        <!-- Usando ion-icon para o logo do WhatsApp -->
+        <ion-icon name="logo-whatsapp" slot="start" class="whatsapp-icon"></ion-icon>
+        <span class="whatsapp-text">Tenho Interesse</span>
+      </ion-button>
+
+
+      <p *ngIf="!petDetail.whatsapp" class="no-contact-message">Contato não disponível</p>
+    </div>
+  </div>
+
+  <!-- Estado de carregamento -->
+  <div *ngIf="isLoading" class="loading-message">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Carregando os detalhes do pet...</p>
+  </div>
+
+  <!-- Erro -->
+  <div *ngIf="!isLoading && !petDetail" class="error-message">
+    <p>Detalhes do pet não disponíveis.</p>
+  </div>
+</ion-content>

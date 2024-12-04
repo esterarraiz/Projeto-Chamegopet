@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %} <!-- Carregando o filtro customizado -->
+
+{% block content %}
+<div class="container my-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="text-center form-container">
+    <h2 class="mb-4">Divulgue seu pet</h2>
+
+    <form method="POST" enctype="multipart/form-data" id="form-pet">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="mb-3">
+          <label for="{{ field.id_for_label }}" class="form-label">
+            {% if field.name == "titulo" %} Título:
+            {% elif field.name == "especie" %} Espécie:
+            {% elif field.name == "raca" %} Raça:
+            {% elif field.name == "idade" %} Idade:
+            {% elif field.name == "sexo" %} Sexo:
+            {% elif field.name == "imagem" %} Foto do pet:
+            {% elif field.name == "cep" %} CEP:
+            {% elif field.name == "cidade" %} Cidade:
+            {% elif field.name == "estado" %} Estado:
+            {% elif field.name == "descricao" %} Descrição:
+            {% elif field.name == "whatsapp" %} Número do Whatsapp (DD + Telefone):
+            {% else %} {{ field.label }} {% endif %}
+          </label>
+          {{ field|add_class:"input-custom" }}
+          {% if field.errors %}
+            <div class="text-danger">
+              {{ field.errors|join:", " }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      <button type="submit" class="btn btn-custom mt-3">Divulgar</button>
+    </form>
+  </div>
+</div>
+<script src="{% static 'js/validacao_form.js' %}"></script>
+{% endblock %}
+
+
+
+

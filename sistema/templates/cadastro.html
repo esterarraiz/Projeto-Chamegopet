@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cadastro</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/styles-login.css' %}">
+    </head>
+    <body>
+
+        <div class="login-container">
+            <div class="login-logo">
+                <img src="{% static 'img/logo.svg' %}" alt="Logo" class="logo">
+            </div>
+            <form class="login-form" action="{% url 'cadastro' %}" method="POST">
+                {% csrf_token %}
+                <label for="primeiro_nome">Primeiro Nome:</label>
+                <input type="text" name="primeiro_nome" id="primeiro_nome" required>
+                <label for="ultimo_nome">Sobrenome:</label>
+                <input type="text" name="ultimo_nome" id="ultimo_nome" required>
+                <label for="usuario">Usuário:</label>
+                <input type="text" name="usuario" id="usuario" required>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf" id="cpf" required>
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" id="senha" required>
+                <label for="confirm_senha">Confirme a Senha:</label>
+                <input type="password" name="confirm_senha" id="confirm_senha" required>
+                <button type="submit">Cadastrar</button>
+                <p>Já tem uma conta? <a href="{% url 'login' %}">Login</a></p>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            </form>
+        </div>
+    </body>
+</html>

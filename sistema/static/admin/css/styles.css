@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('./img/fundo_1.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+#welcome, #login {
+    padding: 20px;
+}
+
+.card-welcome {
+    font-family: 'Georgia', serif;
+    width: 600px; 
+    margin-left: 100px; 
+    color: #ffffff; 
+}
+
+#login {
+    width: 500px; 
+    padding: 30px; 
+    background-color: rgba(0, 0, 0, 0.0); /* Fundo com leve transparência */
+    border-radius: 10px;
+    margin-right: 100px; /* Ajuste a margem à direita */
+}
+
+/* Estilo para o cabeçalho do login */
+.card-header h1 {
+    font-family: 'Georgia', serif;
+    text-align: center;
+    font-size: 35px; /* Reduz o tamanho do texto */
+    color: #ffffff;
+}
+
+/* Área de conteúdo */
+.card-content-area {
+    margin-bottom: 15px;
+    padding: 5px 0;
+}
+
+/* Estilo para o label */
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+/* Estilo para os campos de texto e senha */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px; /* Menor altura nos inputs */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px; /* Texto menor */
+}
+
+/* Estilo para o rodapé */
+.card-footer {
+    text-align: center;
+}
+
+/* Botão de submit */
+.submit {
+    background-color: #2c5689;
+    color: white;
+    padding: 10px 20px; /* Tamanho menor do botão */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: auto;
+    float: left;
+}
+
+/* Link para recuperar senha */
+.recuperar_senha {
+    font-size: 12px; /* Tamanho menor do texto */
+    display: block;
+    margin-top: -12px;
+    margin-right: -20px;
+    color: #2a8eff;
+    text-decoration: none;
+    opacity: 0.8;
+    float: right;
+}

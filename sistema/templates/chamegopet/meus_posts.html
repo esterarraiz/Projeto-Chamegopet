@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">Minhas divulgações:</h2>
+    <div class="row">
+        {% for pet in pets %}
+            <div class="col-md-4 col-sm-6 mb-4"> <!-- Adiciona col-sm-6 para telas menores -->
+                <div class="card">
+                    <!-- Define o tamanho da imagem do card -->
+                    <img src="{{ pet.imagem.url }}" class="card-img-top" alt="Imagem do pet">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ pet.titulo }}</h5>
+                        <a href="{% url 'editar_divulgacao' pet.id %}" class="btn btn-sm btn-editar">Editar</a>
+                        <a href="{% url 'excluir_divulgacao' pet.id %}" class="btn btn-danger btn-sm">Excluir</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

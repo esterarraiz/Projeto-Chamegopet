@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="centered-title">Minhas Divulgações</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-wrapper">
+    <ion-list>
+      <ion-item-sliding *ngFor="let pet of pets">
+        <ion-item>
+          <ion-card class="card-home">
+            <!-- Container principal -->
+            <div class="pet-container">
+              <!-- Imagem pequena à esquerda -->
+              <div class="pet-thumbnail">
+                <img *ngIf="pet.imagem" [src]="pet.imagem" alt="{{ pet.titulo }}" />
+              </div>
+
+              <!-- Conteúdo do card (título e descrição) -->
+              <div class="card-content">
+                <ion-card-header>
+                  <ion-card-title>{{ pet.titulo }}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content class="detalhes">
+                  <p>
+                    📍 {{ pet.cidade }} - {{ pet.estado }}<br />
+                    ⏰ {{ pet.date_posted | date: 'dd/MM/yyyy HH:mm' }}
+                  </p>
+                </ion-card-content>
+              </div>
+
+              <!-- Botões lado a lado -->
+              <div class="card-actions">
+                <ion-button (click)="editarDivulgacao(pet.id)" fill="clear">Editar</ion-button>
+                <ion-button color="danger" (click)="excluirDivulgacao(pet.id)" fill="clear">Excluir</ion-button>
+              </div>
+            </div>
+          </ion-card>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+</ion-content>

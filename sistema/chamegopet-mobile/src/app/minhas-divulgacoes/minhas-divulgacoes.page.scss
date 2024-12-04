@@ -1,0 +1,67 @@
+ion-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 40px; /* Ajuste a altura conforme o tamanho do seu cabeçalho */
+}
+
+ion-content {
+  --padding-top: 65px; /* Garante que o conteúdo não invada o header */
+}
+
+.centered-title {
+  text-align: center; /* Centraliza o texto */
+  width: 100%; /* Faz o título ocupar o espaço completo */
+  position: absolute; /* Faz o título ignorar o botão */
+  left: 0;
+  top: 50%; /* Centraliza verticalmente dentro do toolbar */
+  transform: translateY(-50%); /* Ajuste fino para centralização vertical */
+}
+
+
+.pet-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.pet-thumbnail {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  margin-right: 16px;
+}
+
+.pet-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card-content {
+  flex-grow: 1; 
+}
+
+.card-content .detalhes p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.card-actions {
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
+  gap: 8px; 
+}
+
+.card-actions ion-button {
+  font-size: 14px;
+  padding: 0;
+}

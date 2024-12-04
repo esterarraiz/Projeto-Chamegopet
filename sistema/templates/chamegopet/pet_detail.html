@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="card pet-detail-card">
+        <div class="row g-0">
+            <div class="col-md-4">
+                {% if petdetail.imagem %}
+                    <img src="{{ petdetail.imagem.url }}" class="img-fluid rounded-start" alt="{{ petdetail.id }}">
+                {% else %}
+                    <p>Sem imagem disponível</p>
+                {% endif %}
+
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h4 class="card-title">{{ petdetail.titulo }}</h4>
+                    <ul class="list-unstyled">
+                        <li><strong>Raça:</strong> {{ petdetail.raca }}</li>
+                        <li><strong>Idade:</strong> {{ petdetail.idade }} meses</li>
+                        <li><strong>Sexo:</strong> {{ petdetail.sexo }}</li>
+                        <li><strong>Descrição:</strong> {{ petdetail.descricao }}</li>
+                    </ul>
+                    {% if petdetail.whatsapp %}
+                    <a href="https://wa.me/{{ petdetail.whatsapp|urlencode }}?text=Olá, vi o seu post no *Chamegopet* e tenho interesse de adotar o pet {{ petdetail.titulo }}!" 
+                    target="_blank" 
+                    class="btn btn-success">
+                        <i class="bi bi-whatsapp"></i> Tenho Interesse
+                    </a>
+                    {% else %}
+                    <p class="text-danger">Número de WhatsApp não disponível.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

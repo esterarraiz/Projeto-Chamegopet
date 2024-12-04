@@ -1,0 +1,125 @@
+ion-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 40px;
+}
+.centered-title {
+  text-align: center; /* Centraliza o texto */
+  width: 100%; /* Faz o título ocupar o espaço completo */
+  position: absolute; /* Faz o título ignorar o botão */
+  left: 0;
+  top: 50%; /* Centraliza verticalmente dentro do toolbar */
+  transform: translateY(-50%); /* Ajuste fino para centralização vertical */
+}
+.logo-container {
+  display: flex; /* Mantém alinhamento flexível */
+  align-items: center; /* Centraliza verticalmente a logo */
+  justify-content: flex-start; /* Garante alinhamento à esquerda */
+}
+
+.logo {
+  height: 40px; /* Ajuste o tamanho da logo */
+  margin-left: 5px; /* Espaço entre a logo e a borda do header */
+}
+
+/* Estilo para o botão Entrar */
+.entrar {
+  font-size: 18px; /* Aumenta o tamanho da fonte */
+  padding: 12px 24px; /* Aumenta o tamanho do botão (altura e largura) */
+  border-radius: 12px; /* Arredonda os cantos do botão */
+  background-color: #3880ff; /* Altere a cor de fundo do botão */
+  color: white; /* Cor do texto */
+}
+
+/* Estilo para o botão ao passar o mouse */
+.entrar:hover {
+  background-color: #0066cc; /* Cor de fundo ao passar o mouse */
+}
+
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.text-center { 
+  margin-top: 50px; /* Ajuste conforme necessário */
+}
+
+
+
+.card-home {
+  border: 1px solid #ddd; /* Borda nos cards */
+  border-radius: 10px; /* Borda arredondada */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  display: flex; /* Faz a imagem e o conteúdo ficarem lado a lado */
+  padding: 10px;
+  margin-bottom: 10px;
+  flex-direction: row; /* Alinha a imagem e o conteúdo lado a lado */
+  overflow: hidden; /* Garante que nada ultrapasse os limites do card */
+}
+
+/* Estilo para as imagens */
+.pet-thumbnail {
+  width: 100px;  /* Largura fixa para garantir que a imagem seja quadrada */
+  height: 100px;  /* Altura fixa para garantir que a imagem seja quadrada */
+  overflow: hidden; /* Esconde parte da imagem se ela exceder o limite */
+  border-radius: 5px; /* Borda arredondada na imagem */
+}
+
+.pet-thumbnail img {
+  width: 100%; /* Faz a imagem preencher toda a área */
+  height: 100%; /* Faz a imagem preencher toda a altura */
+  object-fit: cover; /* Faz com que a imagem seja cortada para caber, sem distorção */
+}
+
+/* Estilo para o conteúdo à direita da imagem */
+.card-content {
+  display: flex;
+  flex-direction: column; /* Organiza as informações em coluna */
+  justify-content: center;
+  padding-left: 10px; /* Espaço entre a imagem e o conteúdo */
+  flex: 1; /* Faz o conteúdo ocupar o restante do espaço disponível */
+}
+
+/* Adicionando padding para o card */
+.card-home ion-card-content {
+  padding: 10px;
+}
+
+/* Estilo para o título e informações */
+.card-content h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+.card-content ion-icon {
+  margin-right: 5px;
+}
+
+.detalhes p {
+  font-size: 0.65em;  /* Ajuste o valor conforme necessário */
+}
+
+ion-button.saiba-mais {
+  position: absolute !important;
+  bottom: 10px !important;
+  right: 10px !important;
+  color: white !important;
+}
+
+.card-home {
+  position: relative;
+}
+

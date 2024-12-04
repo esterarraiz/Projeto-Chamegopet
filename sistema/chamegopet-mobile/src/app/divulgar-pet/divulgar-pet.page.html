@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="centered-title">Detalhes do Pet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="petForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input formControlName="titulo" placeholder="Dê um título para o anúncio"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Espécie</ion-label>
+        <ion-input formControlName="especie" placeholder="Ex.: Gato, Cachorro"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Raça</ion-label>
+        <ion-input formControlName="raca" placeholder="Raça do pet"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Idade</ion-label>
+        <ion-input formControlName="idade" type="number" placeholder="Idade do pet"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Sexo</ion-label>
+        <ion-select formControlName="sexo" placeholder="Selecione o sexo">
+          <ion-select-option value="Macho">Macho</ion-select-option>
+          <ion-select-option value="Fêmea">Fêmea</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Descrição</ion-label>
+        <ion-textarea formControlName="descricao" placeholder="Descreva o pet e sua situação"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">CEP</ion-label>
+        <ion-input formControlName="cep" placeholder="Digite o CEP" (ionBlur)="onCepBlur()"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Cidade</ion-label>
+        <ion-input formControlName="cidade" placeholder="Cidade" readonly></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Estado</ion-label>
+        <ion-input formControlName="estado" placeholder="Estado" readonly></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">WhatsApp</ion-label>
+        <ion-input formControlName="whatsapp" type="tel" placeholder="Número do WhatsApp"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Imagem</ion-label>
+        <input type="file" (change)="onFileChange($event)" />
+      </ion-item>
+    </ion-list>
+
+    <div class="button-group">
+      <ion-button expand="block" type="submit" [disabled]="!petForm.valid">
+        Divulgar
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

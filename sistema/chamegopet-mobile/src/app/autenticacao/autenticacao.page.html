@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+    <div class="login-logo">
+      <img src="assets/img/logo.svg" alt="Logo" class="logo">
+    </div>
+    
+    <form (submit)="autenticarUsuario()">
+      <ion-item>
+        <ion-label position="floating">Login</ion-label>
+        <ion-input type="text" name="usuario" [(ngModel)]="instancia.username" autocomplete="on" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" name="senha" [(ngModel)]="instancia.password" autocomplete="off" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit">ENTRAR</ion-button>
+    </form>
+
+    <p class="register-link">Não tem cadastro? <a href="#">Criar uma conta</a></p>
+
+    <div *ngIf="mensagem" class="alert alert-danger">
+      {{ mensagem }}
+    </div>
+  </div>
+</ion-content>
