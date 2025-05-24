@@ -99,11 +99,11 @@ WSGI_APPLICATION = 'sistema.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "chamegopet_bd",
-        'USER': "postgres",
-        'PASSWORD': "123",
-        'HOST': 'localhost',
-        'PORT': "5432",
+        'NAME': 'postgres',  # database padrão do Supabase
+        'USER': 'postgres.ssngqosybvlvdqzqulcy',
+        'PASSWORD': '@edn2025',
+        'HOST': 'aws-0-sa-east-1.pooler.supabase.com',
+        'PORT': '5432',
     }
 }
 
